@@ -1,0 +1,11 @@
+{
+	"id": "custom-right-sidebar",
+	"name": "Custom Right Sidebar",
+	"version": "1.0.0",
+	"minAppVersion": "0.15.0",
+	"description": "A customizable right sidebar that displays directory-specific content based on rules. Toggle with Cmd/Ctrl+Shift+S.",
+	"author": "Real1ty",
+	"authorUrl": "https://obsidian.md",
+	"fundingUrl": "https://github.com/sponsors/real1ty",
+	"isDesktopOnly": false
+}

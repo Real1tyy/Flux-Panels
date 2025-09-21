@@ -1,0 +1,229 @@
+/*
+Custom Sidebar Plugin Styles
+This CSS file contains all styles for the Custom Sidebar plugin.
+*/
+
+/* Main Sidebar View Container */
+.custom-sidebar-root {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	padding: 8px;
+}
+
+/* Sidebar Content Area */
+.custom-sidebar-content {
+	flex: 1;
+	overflow: auto;
+	padding-right: 4px;
+	color: var(--text-normal);
+	font-size: 16px;
+	line-height: 1.5;
+}
+
+/* Empty State Styles */
+.custom-sidebar-no-content {
+	text-align: center;
+	color: var(--text-muted);
+	font-style: italic;
+	padding: 20px;
+	border: 2px dashed var(--background-modifier-border);
+	border-radius: 8px;
+	background: var(--background-secondary);
+}
+
+/* Error State Styles */
+.custom-sidebar-error {
+	text-align: center;
+	color: var(--text-error);
+	font-weight: 500;
+	padding: 16px;
+	background: var(--background-modifier-error);
+	border: 2px solid var(--text-error);
+	border-radius: 8px;
+}
+
+/* Content styling within sidebar */
+.custom-sidebar-content h1,
+.custom-sidebar-content h2,
+.custom-sidebar-content h3,
+.custom-sidebar-content h4,
+.custom-sidebar-content h5,
+.custom-sidebar-content h6 {
+	margin-top: 0;
+	margin-bottom: 8px;
+	color: var(--text-normal);
+	font-size: 1.3em;
+}
+
+.custom-sidebar-content p {
+	margin-bottom: 8px;
+}
+
+.custom-sidebar-content ul,
+.custom-sidebar-content ol {
+	margin-bottom: 8px;
+	padding-left: 16px;
+}
+
+.custom-sidebar-content li {
+	margin-bottom: 4px;
+}
+
+.custom-sidebar-content pre {
+	background: var(--background-secondary);
+	border: 1px solid var(--background-modifier-border);
+	border-radius: 4px;
+	padding: 8px;
+	margin: 8px 0;
+	overflow-x: auto;
+	font-size: 12px;
+}
+
+.custom-sidebar-content code {
+	background: var(--background-secondary);
+	padding: 2px 4px;
+	border-radius: 3px;
+	font-size: 0.9em;
+}
+
+.custom-sidebar-content blockquote {
+	border-left: 3px solid var(--text-accent);
+	margin: 8px 0;
+	padding: 6px 10px;
+	background: var(--background-secondary);
+	border-radius: 0 4px 4px 0;
+}
+
+.custom-sidebar-content table {
+	width: 100%;
+	border-collapse: collapse;
+	margin: 8px 0;
+	font-size: 12px;
+}
+
+.custom-sidebar-content th,
+.custom-sidebar-content td {
+	border: 1px solid var(--background-modifier-border);
+	padding: 6px 8px;
+	text-align: left;
+}
+
+.custom-sidebar-content th {
+	background: var(--background-secondary);
+	font-weight: 600;
+}
+
+.custom-sidebar-content img {
+	max-width: 100%;
+	height: auto;
+	border-radius: 4px;
+	margin: 8px 0;
+}
+
+.custom-sidebar-content a {
+	color: var(--text-accent);
+	text-decoration: none;
+}
+
+.custom-sidebar-content a:hover {
+	text-decoration: underline;
+}
+
+/* Dataview compatibility */
+.custom-sidebar-content .dataview {
+	margin: 8px 0;
+}
+
+.custom-sidebar-content .dataview table {
+	font-size: 11px;
+}
+
+/* Task list styling */
+.custom-sidebar-content .task-list-item {
+	list-style: none;
+	margin-left: -16px;
+}
+
+.custom-sidebar-content .task-list-item input[type="checkbox"] {
+	margin-right: 6px;
+}
+
+/* Callout styling */
+.custom-sidebar-content .callout {
+	border-left: 3px solid var(--text-accent);
+	margin: 8px 0;
+	padding: 8px;
+	background: var(--background-secondary);
+	border-radius: 0 4px 4px 0;
+	font-size: 12px;
+}
+
+.custom-sidebar-content .callout-title {
+	font-weight: 600;
+	margin-bottom: 4px;
+}
+
+/* Interactive elements styling */
+.custom-sidebar-content button,
+.custom-sidebar-content .clickable-icon,
+.custom-sidebar-content .dataview-button,
+.custom-sidebar-content .dataview-inline-query,
+.custom-sidebar-content .internal-link,
+.custom-sidebar-content .external-link,
+.custom-sidebar-content input,
+.custom-sidebar-content select,
+.custom-sidebar-content textarea {
+	pointer-events: auto;
+	position: relative;
+}
+
+/* Button styling */
+.custom-sidebar-content button {
+	background: var(--interactive-normal);
+	border: 1px solid var(--background-modifier-border);
+	border-radius: 4px;
+	padding: 4px 8px;
+	color: var(--text-normal);
+	cursor: pointer;
+	transition: background-color 0.2s ease;
+	font-size: 12px;
+}
+
+.custom-sidebar-content button:hover {
+	background: var(--interactive-hover);
+}
+
+.custom-sidebar-content button:active {
+	background: var(--interactive-active);
+}
+
+/* Scroll behavior */
+.custom-sidebar-content::-webkit-scrollbar {
+	width: 6px;
+}
+
+.custom-sidebar-content::-webkit-scrollbar-track {
+	background: var(--background-secondary);
+}
+
+.custom-sidebar-content::-webkit-scrollbar-thumb {
+	background: var(--background-modifier-border);
+	border-radius: 3px;
+}
+
+.custom-sidebar-content::-webkit-scrollbar-thumb:hover {
+	background: var(--text-muted);
+}
+
+/* Responsive adjustments for smaller sidebar widths */
+@media (max-width: 400px) {
+	.custom-sidebar-root {
+		padding: 6px;
+		gap: 6px;
+	}
+
+	.custom-sidebar-content {
+		font-size: 12px;
+	}
+}

@@ -1,0 +1,273 @@
+/*
+Custom Footer Plugin Styles
+This CSS file contains all styles for the Custom Footer plugin.
+*/
+
+/* Main Footer Container */
+.custom-footer-container {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 50; /* Moderate z-index - allows footer dialogs above, but Obsidian dialogs higher */
+	background: var(--background-primary);
+	border-top: 2px solid var(--background-modifier-border);
+	box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+	/* Removed max-height restriction to allow unlimited resizing */
+	overflow-y: auto;
+	transition:
+		transform 0.3s ease-in-out,
+		opacity 0.3s ease-in-out;
+	backdrop-filter: blur(10px);
+	pointer-events: auto; /* Ensure container can receive events */
+}
+
+/* Footer Content Area */
+.custom-footer-content {
+	padding: 16px 20px;
+	min-height: 60px;
+	color: var(--text-normal);
+	font-size: 16px;
+	line-height: 1.6;
+	pointer-events: auto; /* Ensure content area can receive events */
+	position: relative; /* Establish stacking context */
+}
+
+/* Empty State Styles */
+.custom-footer-empty {
+	text-align: center;
+	color: var(--text-muted);
+	font-style: italic;
+	padding: 20px;
+	border: 2px dashed var(--background-modifier-border);
+	border-radius: 8px;
+	background: var(--background-secondary);
+}
+
+/* Error State Styles */
+.custom-footer-error {
+	text-align: center;
+	color: var(--text-error);
+	font-weight: 500;
+	padding: 16px;
+	background: var(--background-modifier-error);
+	border: 2px solid var(--text-error);
+	border-radius: 8px;
+}
+
+/* Ensure main content has bottom padding when footer is visible */
+body.custom-footer-visible .workspace-leaf-content {
+	padding-bottom: 200px; /* Adjust based on typical footer height */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+	/* Removed max-height restriction for mobile to allow unlimited resizing */
+
+	.custom-footer-content {
+		padding: 12px 16px;
+		font-size: 13px;
+	}
+
+	body.custom-footer-visible .workspace-leaf-content {
+		padding-bottom: 150px;
+	}
+}
+
+/* Content styling within footer */
+.custom-footer-content h1,
+.custom-footer-content h2,
+.custom-footer-content h3,
+.custom-footer-content h4,
+.custom-footer-content h5,
+.custom-footer-content h6 {
+	margin-top: 0;
+	margin-bottom: 8px;
+	color: var(--text-normal);
+	font-size: 1.3em;
+}
+
+.custom-footer-content p {
+	margin-bottom: 8px;
+}
+
+.custom-footer-content ul,
+.custom-footer-content ol {
+	margin-bottom: 8px;
+	padding-left: 20px;
+}
+
+.custom-footer-content li {
+	margin-bottom: 4px;
+}
+
+.custom-footer-content pre {
+	background: var(--background-secondary);
+	border: 1px solid var(--background-modifier-border);
+	border-radius: 4px;
+	padding: 12px;
+	margin: 8px 0;
+	overflow-x: auto;
+	font-size: 13px;
+}
+
+.custom-footer-content code {
+	background: var(--background-secondary);
+	padding: 2px 4px;
+	border-radius: 3px;
+	font-size: 0.9em;
+}
+
+.custom-footer-content blockquote {
+	border-left: 4px solid var(--text-accent);
+	margin: 8px 0;
+	padding: 8px 12px;
+	background: var(--background-secondary);
+	border-radius: 0 4px 4px 0;
+}
+
+.custom-footer-content table {
+	width: 100%;
+	border-collapse: collapse;
+	margin: 8px 0;
+}
+
+.custom-footer-content th,
+.custom-footer-content td {
+	border: 1px solid var(--background-modifier-border);
+	padding: 8px 12px;
+	text-align: left;
+}
+
+.custom-footer-content th {
+	background: var(--background-secondary);
+	font-weight: 600;
+}
+
+.custom-footer-content img {
+	max-width: 100%;
+	height: auto;
+	border-radius: 4px;
+	margin: 8px 0;
+}
+
+.custom-footer-content a {
+	color: var(--text-accent);
+	text-decoration: none;
+}
+
+.custom-footer-content a:hover {
+	text-decoration: underline;
+}
+
+/* Dataview compatibility */
+.custom-footer-content .dataview {
+	margin: 8px 0;
+}
+
+.custom-footer-content .dataview table {
+	font-size: 13px;
+}
+
+/* Task list styling */
+.custom-footer-content .task-list-item {
+	list-style: none;
+	margin-left: -20px;
+}
+
+.custom-footer-content .task-list-item input[type="checkbox"] {
+	margin-right: 8px;
+}
+
+/* Callout styling */
+.custom-footer-content .callout {
+	border-left: 4px solid var(--text-accent);
+	margin: 8px 0;
+	padding: 12px;
+	background: var(--background-secondary);
+	border-radius: 0 4px 4px 0;
+}
+
+.custom-footer-content .callout-title {
+	font-weight: 600;
+	margin-bottom: 4px;
+}
+
+/* Interactive elements styling - only apply z-index within footer context */
+.custom-footer-container .custom-footer-content button,
+.custom-footer-container .custom-footer-content .clickable-icon,
+.custom-footer-container .custom-footer-content .dataview-button,
+.custom-footer-container .custom-footer-content .dataview-inline-query,
+.custom-footer-container .custom-footer-content .internal-link,
+.custom-footer-container .custom-footer-content .external-link,
+.custom-footer-container .custom-footer-content input,
+.custom-footer-container .custom-footer-content select,
+.custom-footer-container .custom-footer-content textarea {
+	pointer-events: auto;
+	position: relative;
+	z-index: 70; /* Above footer container (50) for proper interaction */
+}
+
+/* Footer-internal modals and dialogs - these can appear above footer content */
+.custom-footer-container .modal,
+.custom-footer-container .modal-container,
+.custom-footer-container .dropdown,
+.custom-footer-container .menu,
+.custom-footer-container .popover,
+.custom-footer-container .suggestion-container,
+.custom-footer-container .tooltip,
+.custom-footer-container .context-menu {
+	z-index: 100; /* Above footer interactive elements (70) for proper modal display */
+}
+
+/* Ensure modal backdrops within footer appear properly */
+.custom-footer-container .modal-bg {
+	z-index: 95; /* Just below modals but above interactive elements */
+}
+
+/* Ensure buttons and interactive elements are properly styled */
+.custom-footer-container .custom-footer-content button {
+	background: var(--interactive-normal);
+	border: 1px solid var(--background-modifier-border);
+	border-radius: 4px;
+	padding: 4px 8px;
+	color: var(--text-normal);
+	cursor: pointer;
+	transition: background-color 0.2s ease;
+}
+
+.custom-footer-container .custom-footer-content button:hover {
+	background: var(--interactive-hover);
+}
+
+.custom-footer-container .custom-footer-content button:active {
+	background: var(--interactive-active);
+}
+
+/* Dataview specific styling */
+.custom-footer-container .custom-footer-content .dataview.table-view-table {
+	pointer-events: auto;
+}
+
+.custom-footer-container .custom-footer-content .dataview.table-view-table td,
+.custom-footer-container .custom-footer-content .dataview.table-view-table th {
+	pointer-events: auto;
+}
+
+/* Scroll behavior */
+.custom-footer-container::-webkit-scrollbar {
+	width: 8px;
+}
+
+.custom-footer-container::-webkit-scrollbar-track {
+	background: var(--background-secondary);
+}
+
+.custom-footer-container::-webkit-scrollbar-thumb {
+	background: var(--background-modifier-border);
+	border-radius: 4px;
+}
+
+.custom-footer-container::-webkit-scrollbar-thumb:hover {
+	background: var(--text-muted);
+}

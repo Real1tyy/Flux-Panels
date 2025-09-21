@@ -1,0 +1,11 @@
+{
+	"id": "custom-footer",
+	"name": "Custom Footer",
+	"version": "1.0.0",
+	"minAppVersion": "0.15.0",
+	"description": "This is a custom footer plugin for Obsidian (https://obsidian.md)",
+	"author": "Real1ty",
+	"authorUrl": "https://obsidian.md",
+	"fundingUrl": "https://github.com/sponsors/real1ty",
+	"isDesktopOnly": false
+}
