@@ -1,0 +1,205 @@
+/* ================================================================
+ * Recurring Event Create Modal Styles
+ * ================================================================
+ * Add these styles to your main styles.css file
+ */
+
+/* Modal Container */
+.recurring-event-create-modal {
+	min-width: 500px;
+	max-width: 600px;
+}
+
+.recurring-event-create-modal .modal-content {
+	padding: 20px;
+}
+
+/* Custom Properties Section */
+.custom-properties-header {
+	margin-top: 30px;
+	margin-bottom: 10px;
+	font-size: 1.1em;
+	font-weight: 600;
+	color: var(--text-normal);
+	border-bottom: 1px solid var(--background-modifier-border);
+	padding-bottom: 8px;
+}
+
+.custom-properties-container {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+	margin-bottom: 15px;
+	padding: 10px;
+	background-color: var(--background-secondary);
+	border-radius: 6px;
+}
+
+.custom-property-item {
+	padding: 15px;
+	background-color: var(--background-primary);
+	border-radius: 4px;
+	border: 1px solid var(--background-modifier-border);
+}
+
+.custom-property-item .setting-item {
+	border: none;
+	padding: 8px 0;
+}
+
+.custom-property-item .setting-item:last-child {
+	padding-bottom: 0;
+}
+
+/* Weekdays Checkboxes */
+.weekdays-container {
+	margin-top: 10px;
+	margin-bottom: 15px;
+}
+
+.weekdays-checkboxes {
+	display: flex;
+	gap: 10px;
+	flex-wrap: wrap;
+	margin-top: 8px;
+}
+
+.weekday-checkbox-label {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	padding: 8px 12px;
+	background-color: var(--background-secondary);
+	border: 1px solid var(--background-modifier-border);
+	border-radius: 4px;
+	cursor: pointer;
+	transition: all 0.2s ease;
+	user-select: none;
+}
+
+.weekday-checkbox-label:hover {
+	background-color: var(--background-modifier-hover);
+	border-color: var(--interactive-accent);
+}
+
+.weekday-checkbox-label input[type="checkbox"] {
+	cursor: pointer;
+	margin: 0;
+}
+
+.weekday-checkbox-label input[type="checkbox"]:checked + .weekday-label {
+	color: var(--interactive-accent);
+	font-weight: 600;
+}
+
+.weekday-label {
+	font-size: 0.9em;
+	color: var(--text-normal);
+	transition: color 0.2s ease;
+}
+
+/* Time Fields Container */
+.timed-fields-container {
+	transition: opacity 0.2s ease;
+}
+
+/* Toolbar Button */
+.fc-createRecurring-button {
+	background-color: var(--interactive-accent) !important;
+	color: var(--text-on-accent) !important;
+	font-weight: 500;
+	border: none !important;
+	transition: all 0.2s ease;
+}
+
+.fc-createRecurring-button:hover {
+	background-color: var(--interactive-accent-hover) !important;
+	transform: translateY(-1px);
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.fc-createRecurring-button:active {
+	transform: translateY(0);
+}
+
+/* Input Fields Styling */
+.recurring-event-create-modal input[type="text"],
+.recurring-event-create-modal input[type="date"],
+.recurring-event-create-modal input[type="time"],
+.recurring-event-create-modal select {
+	width: 100%;
+	padding: 8px 12px;
+	border: 1px solid var(--background-modifier-border);
+	border-radius: 4px;
+	background-color: var(--background-primary);
+	color: var(--text-normal);
+	font-size: 0.95em;
+	transition: border-color 0.2s ease;
+}
+
+.recurring-event-create-modal input[type="text"]:focus,
+.recurring-event-create-modal input[type="date"]:focus,
+.recurring-event-create-modal input[type="time"]:focus,
+.recurring-event-create-modal select:focus {
+	outline: none;
+	border-color: var(--interactive-accent);
+	box-shadow: 0 0 0 2px var(--interactive-accent-hover);
+}
+
+/* Button Container */
+.recurring-event-create-modal .modal-button-container {
+	display: flex;
+	justify-content: flex-end;
+	gap: 10px;
+	margin-top: 25px;
+	padding-top: 20px;
+	border-top: 1px solid var(--background-modifier-border);
+}
+
+.recurring-event-create-modal .modal-button-container button {
+	padding: 10px 20px;
+	font-size: 0.95em;
+	border-radius: 4px;
+	cursor: pointer;
+	transition: all 0.2s ease;
+}
+
+.recurring-event-create-modal .modal-button-container button.mod-cta {
+	background-color: var(--interactive-accent);
+	color: var(--text-on-accent);
+	border: none;
+}
+
+.recurring-event-create-modal .modal-button-container button.mod-cta:hover {
+	background-color: var(--interactive-accent-hover);
+	transform: translateY(-1px);
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.recurring-event-create-modal .modal-button-container button:not(.mod-cta) {
+	background-color: var(--background-secondary);
+	color: var(--text-normal);
+	border: 1px solid var(--background-modifier-border);
+}
+
+.recurring-event-create-modal .modal-button-container button:not(.mod-cta):hover {
+	background-color: var(--background-modifier-hover);
+	border-color: var(--background-modifier-border-hover);
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+	.recurring-event-create-modal {
+		min-width: 100%;
+		max-width: 100%;
+	}
+
+	.weekdays-checkboxes {
+		gap: 6px;
+	}
+
+	.weekday-checkbox-label {
+		padding: 6px 10px;
+		font-size: 0.85em;
+	}
+}
