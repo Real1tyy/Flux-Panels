@@ -154,9 +154,7 @@ describe("Dynamic Commands", () => {
 			expect(mainCommands).toHaveLength(2);
 
 			// Find the nested commands
-			const nestedCommands = commandsAfterSwitch.filter((cmd) =>
-				cmd.id.startsWith("switch-to-nested")
-			);
+			const nestedCommands = commandsAfterSwitch.filter((cmd) => cmd.id.startsWith("switch-to-nested"));
 			expect(nestedCommands).toHaveLength(2);
 
 			expect(nestedCommands[0]).toEqual({
@@ -300,9 +298,7 @@ describe("Dynamic Commands", () => {
 			// Try to switch to non-existent view
 			await testSidebarManager.switchToView("nonexistent");
 
-			expect(consoleSpy).toHaveBeenCalledWith(
-				"Cannot switch to view: View 'nonexistent' not found"
-			);
+			expect(consoleSpy).toHaveBeenCalledWith("Cannot switch to view: View 'nonexistent' not found");
 
 			consoleSpy.mockRestore();
 		});

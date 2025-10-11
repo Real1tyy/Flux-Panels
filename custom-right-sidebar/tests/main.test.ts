@@ -105,10 +105,7 @@ describe("CustomRightSidebarPlugin", () => {
 		it("should register the custom right sidebar view", async () => {
 			await plugin.onload();
 
-			expect(plugin.registerView).toHaveBeenCalledWith(
-				VIEW_TYPE_CUSTOM_RIGHT_SIDEBAR,
-				expect.any(Function)
-			);
+			expect(plugin.registerView).toHaveBeenCalledWith(VIEW_TYPE_CUSTOM_RIGHT_SIDEBAR, expect.any(Function));
 		});
 
 		it("should not add ribbon icon by default", async () => {
@@ -208,8 +205,7 @@ describe("CustomRightSidebarPlugin", () => {
 			// Mock the view to pass instanceof check
 			Object.setPrototypeOf(
 				mockView,
-				(await import("../src/components/custom-right-sidebar-view")).CustomRightSidebarView
-					.prototype
+				(await import("../src/components/custom-right-sidebar-view")).CustomRightSidebarView.prototype
 			);
 			const mockLeaf = { view: mockView };
 			mockApp.workspace.getLeavesOfType.mockReturnValue([mockLeaf]);
@@ -342,9 +338,7 @@ describe("CustomRightSidebarPlugin", () => {
 
 	describe("view management", () => {
 		it("should create view with settings getter function", async () => {
-			const { CustomRightSidebarView } = await import(
-				"../src/components/custom-right-sidebar-view"
-			);
+			const { CustomRightSidebarView } = await import("../src/components/custom-right-sidebar-view");
 
 			await plugin.onload();
 
@@ -358,9 +352,7 @@ describe("CustomRightSidebarPlugin", () => {
 		});
 
 		it("should provide current settings to view", async () => {
-			const { CustomRightSidebarView } = await import(
-				"../src/components/custom-right-sidebar-view"
-			);
+			const { CustomRightSidebarView } = await import("../src/components/custom-right-sidebar-view");
 
 			// Clear previous mock calls
 			vi.mocked(CustomRightSidebarView).mockClear();

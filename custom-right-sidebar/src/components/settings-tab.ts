@@ -2,10 +2,7 @@ import { WatchdogSettingsTab } from "@obsidian-plugins/watchdog-plugin";
 import type CustomRightSidebarPlugin from "../main";
 import type { CustomSidebarSettings } from "../types/settings";
 
-export class CustomSidebarSettingTab extends WatchdogSettingsTab<
-	CustomRightSidebarPlugin,
-	CustomSidebarSettings
-> {
+export class CustomSidebarSettingTab extends WatchdogSettingsTab<CustomRightSidebarPlugin, CustomSidebarSettings> {
 	protected getTitle(): string {
 		return "Custom Right Sidebar Settings";
 	}

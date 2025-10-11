@@ -1,11 +1,6 @@
 import { beforeEach, describe, expect, it } from "vitest";
 import type { ViewCacheManager, ViewSelectionCache } from "../src/types";
-import {
-	createEmptyViewSelection,
-	createViewCache,
-	InMemoryViewCache,
-	isValidViewSelection,
-} from "../src/view-cache";
+import { createEmptyViewSelection, createViewCache, InMemoryViewCache, isValidViewSelection } from "../src/view-cache";
 
 describe("InMemoryViewCache", () => {
 	let cache: InMemoryViewCache;

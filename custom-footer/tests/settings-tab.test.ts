@@ -93,9 +93,7 @@ describe("CustomFooterSettingTab", () => {
 			expect(header?.textContent).toBe("Custom Footer Settings");
 
 			const headers = settingTab.containerEl.querySelectorAll("h3");
-			const usageHeader = Array.from(headers).find(
-				(h) => (h as HTMLElement).textContent === "Usage"
-			) as HTMLElement;
+			const usageHeader = Array.from(headers).find((h) => (h as HTMLElement).textContent === "Usage") as HTMLElement;
 			expect(usageHeader?.textContent).toBe("Usage");
 
 			const descriptions = settingTab.containerEl.querySelectorAll(".setting-item-description");
@@ -164,9 +162,7 @@ describe("CustomFooterSettingTab", () => {
 			settingTab.display();
 
 			const description = settingTab.containerEl.innerHTML;
-			expect(description).toContain(
-				"Configure what content to display for different directory paths"
-			);
+			expect(description).toContain("Configure what content to display for different directory paths");
 			expect(description).toContain('Use "*" as the directory path for a default fallback');
 		});
 

@@ -1,11 +1,6 @@
 import { ItemView, MarkdownRenderer, type WorkspaceLeaf } from "obsidian";
 import { SidebarManager } from "./sidebar-manager";
-import type {
-	BaseWatchdogSettings,
-	SidebarRuntimeState,
-	ViewSwitchingManager,
-	WatchdogView,
-} from "./types";
+import type { BaseWatchdogSettings, SidebarRuntimeState, ViewSwitchingManager, WatchdogView } from "./types";
 
 interface BaseSidebarViewState extends Record<string, unknown> {
 	currentPath?: string;

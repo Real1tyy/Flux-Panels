@@ -108,10 +108,7 @@ describe("CustomLeftSidebarPlugin", () => {
 		it("should register the custom left sidebar view", async () => {
 			await plugin.onload();
 
-			expect(plugin.registerView).toHaveBeenCalledWith(
-				VIEW_TYPE_CUSTOM_LEFT_SIDEBAR,
-				expect.any(Function)
-			);
+			expect(plugin.registerView).toHaveBeenCalledWith(VIEW_TYPE_CUSTOM_LEFT_SIDEBAR, expect.any(Function));
 		});
 
 		it("should not add ribbon icon by default", async () => {

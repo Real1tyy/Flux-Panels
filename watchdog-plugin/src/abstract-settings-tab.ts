@@ -91,9 +91,7 @@ export abstract class WatchdogSettingsTab<
 					this.plugin.settings.showRibbonIcon = value;
 					await this.plugin.saveSettings();
 
-					new Notice(
-						"Ribbon icon setting changed. Please reload the plugin or restart Obsidian to see the changes."
-					);
+					new Notice("Ribbon icon setting changed. Please reload the plugin or restart Obsidian to see the changes.");
 				})
 			);
 	}

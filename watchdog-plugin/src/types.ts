@@ -46,10 +46,7 @@ export interface WatchdogView extends View {
 	getViewSwitchingManager?(): ViewSwitchingManager | null;
 }
 
-export type ViewFactory<T extends WatchdogView> = (
-	leaf: WorkspaceLeaf,
-	getSettings: () => BaseWatchdogSettings
-) => T;
+export type ViewFactory<T extends WatchdogView> = (leaf: WorkspaceLeaf, getSettings: () => BaseWatchdogSettings) => T;
 
 export interface ViewSelectionCache {
 	selectedViewId: string | null;

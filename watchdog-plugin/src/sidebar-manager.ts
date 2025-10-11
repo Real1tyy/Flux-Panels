@@ -252,10 +252,7 @@ export class SidebarManager implements ViewSwitchingManager {
 			bottom: "0",
 			zIndex: "50",
 			overflow: "hidden",
-			boxShadow:
-				this.config.side === "left"
-					? "2px 0 8px rgba(0, 0, 0, 0.1)"
-					: "-2px 0 8px rgba(0, 0, 0, 0.1)",
+			boxShadow: this.config.side === "left" ? "2px 0 8px rgba(0, 0, 0, 0.1)" : "-2px 0 8px rgba(0, 0, 0, 0.1)",
 			pointerEvents: "auto",
 			...sideStyle,
 		});
@@ -380,8 +377,7 @@ export class SidebarManager implements ViewSwitchingManager {
 			if (!this.isResizing) return;
 
 			e.preventDefault();
-			const deltaX =
-				this.config.side === "left" ? e.clientX - this.startX : this.startX - e.clientX;
+			const deltaX = this.config.side === "left" ? e.clientX - this.startX : this.startX - e.clientX;
 			const newWidth = Math.max(this.config.minWidth, this.startWidth + deltaX);
 
 			this.runtimeState.currentWidth = newWidth;
@@ -683,9 +679,7 @@ export class SidebarManager implements ViewSwitchingManager {
 		if (!cachedSelection) {
 			// No cache exists - reset to defaults (first view, first sub-view if available)
 			this.selectedViewId =
-				this.currentParsedContent.viewOptions.length > 0
-					? this.currentParsedContent.viewOptions[0].id
-					: null;
+				this.currentParsedContent.viewOptions.length > 0 ? this.currentParsedContent.viewOptions[0].id : null;
 			this.selectedSubViewId = null; // Will be set by updateSubViewSelector if needed
 			return;
 		}
@@ -707,8 +701,7 @@ export class SidebarManager implements ViewSwitchingManager {
 					this.selectedSubViewId = cachedSelection.selectedSubViewId;
 				} else {
 					// Sub-view no longer exists, reset to first sub-view if available
-					this.selectedSubViewId =
-						validMainView.subOptions.length > 0 ? validMainView.subOptions[0].id : null;
+					this.selectedSubViewId = validMainView.subOptions.length > 0 ? validMainView.subOptions[0].id : null;
 				}
 			} else {
 				this.selectedSubViewId = null;
@@ -716,9 +709,7 @@ export class SidebarManager implements ViewSwitchingManager {
 		} else {
 			// Main view no longer exists, reset to defaults
 			this.selectedViewId =
-				this.currentParsedContent.viewOptions.length > 0
-					? this.currentParsedContent.viewOptions[0].id
-					: null;
+				this.currentParsedContent.viewOptions.length > 0 ? this.currentParsedContent.viewOptions[0].id : null;
 			this.selectedSubViewId = null;
 		}
 	}
@@ -764,9 +755,7 @@ export class SidebarManager implements ViewSwitchingManager {
 		if (subViewId && targetView.subOptions) {
 			const targetSubView = targetView.subOptions.find((subOption) => subOption.id === subViewId);
 			if (!targetSubView) {
-				console.warn(
-					`Cannot switch to sub-view: Sub-view '${subViewId}' not found in view '${viewId}'`
-				);
+				console.warn(`Cannot switch to sub-view: Sub-view '${subViewId}' not found in view '${viewId}'`);
 				return;
 			}
 		}
@@ -856,10 +845,7 @@ export class SidebarManager implements ViewSwitchingManager {
 			return null;
 		}
 
-		return (
-			this.currentParsedContent.viewOptions.find((option) => option.id === this.selectedViewId) ||
-			null
-		);
+		return this.currentParsedContent.viewOptions.find((option) => option.id === this.selectedViewId) || null;
 	}
 
 	/**

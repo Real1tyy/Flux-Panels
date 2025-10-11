@@ -158,12 +158,7 @@ describe("FooterManager", () => {
 			vi.mocked(MarkdownRenderer.render).mockRejectedValueOnce(new Error("Render failed"));
 
 			// Create a fresh footer manager to avoid any state issues
-			const freshFooterManager = new FooterManager(
-				mockApp,
-				mockRuntimeState,
-				mockComponent,
-				() => mockSettings
-			);
+			const freshFooterManager = new FooterManager(mockApp, mockRuntimeState, mockComponent, () => mockSettings);
 
 			// Show will trigger updateContent which should fail and show error
 			freshFooterManager.show();
@@ -237,16 +232,8 @@ describe("FooterManager", () => {
 		it("should register resize event handlers", () => {
 			footerManager.show();
 
-			expect(mockComponent.registerDomEvent).toHaveBeenCalledWith(
-				document,
-				"mousemove",
-				expect.any(Function)
-			);
-			expect(mockComponent.registerDomEvent).toHaveBeenCalledWith(
-				document,
-				"mouseup",
-				expect.any(Function)
-			);
+			expect(mockComponent.registerDomEvent).toHaveBeenCalledWith(document, "mousemove", expect.any(Function));
+			expect(mockComponent.registerDomEvent).toHaveBeenCalledWith(document, "mouseup", expect.any(Function));
 		});
 
 		it("should update height when runtime state changes", () => {

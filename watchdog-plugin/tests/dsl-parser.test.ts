@@ -238,9 +238,7 @@ Just text without wikilinks
 
 			expect(result.hasValidDsl).toBe(true);
 			expect(result.viewOptions).toHaveLength(1);
-			expect(result.viewOptions[0].content).toBe(
-				"![[Projects-Tasks.base]]\n![[Additional-Content.base]]"
-			);
+			expect(result.viewOptions[0].content).toBe("![[Projects-Tasks.base]]\n![[Additional-Content.base]]");
 		});
 
 		it("should handle whitespace in fence content", () => {

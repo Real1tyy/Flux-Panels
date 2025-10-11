@@ -116,9 +116,7 @@ describe("SidebarManager Caching", () => {
 			const file2 = "file2.md";
 
 			// Both files should start with defaults, not inherit from each other
-			mockApp.workspace.getActiveFile
-				.mockReturnValueOnce({ path: file1 })
-				.mockReturnValueOnce({ path: file2 });
+			mockApp.workspace.getActiveFile.mockReturnValueOnce({ path: file1 }).mockReturnValueOnce({ path: file2 });
 
 			// The actual default behavior is tested through the updateContent method
 			// This test verifies the cache interface supports independent file selections
@@ -157,12 +155,7 @@ describe("SidebarManager Caching", () => {
 
 			const mockGetSettingsNoDsl = vi.fn().mockReturnValue(settingsWithoutDsl);
 
-			const sidebarWithoutDsl = new SidebarManager(
-				mockApp,
-				runtimeState,
-				mockComponent,
-				mockGetSettingsNoDsl
-			);
+			const sidebarWithoutDsl = new SidebarManager(mockApp, runtimeState, mockComponent, mockGetSettingsNoDsl);
 
 			// Should not have any cached selections for non-DSL content
 			expect(sidebarWithoutDsl.getCachedSelection(testFilePath)).toBeNull();

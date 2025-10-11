@@ -141,9 +141,7 @@ export abstract class WatchdogPlugin<TSettings extends BaseWatchdogSettings> ext
 
 		// Open in the appropriate sidebar
 		const leaf =
-			config.sidebarSide === "left"
-				? this.app.workspace.getLeftLeaf(false)
-				: this.app.workspace.getRightLeaf(false);
+			config.sidebarSide === "left" ? this.app.workspace.getLeftLeaf(false) : this.app.workspace.getRightLeaf(false);
 
 		if (leaf) {
 			await leaf.setViewState({ type: config.viewType, active: true });
@@ -237,11 +235,7 @@ export abstract class WatchdogPlugin<TSettings extends BaseWatchdogSettings> ext
 		}
 
 		const view = leaves[0].view;
-		if (
-			view &&
-			"getViewSwitchingManager" in view &&
-			typeof view.getViewSwitchingManager === "function"
-		) {
+		if (view && "getViewSwitchingManager" in view && typeof view.getViewSwitchingManager === "function") {
 			return view.getViewSwitchingManager();
 		}
 
@@ -251,10 +245,7 @@ export abstract class WatchdogPlugin<TSettings extends BaseWatchdogSettings> ext
 	/**
 	 * Register dynamic commands for view switching
 	 */
-	private registerDynamicCommands(
-		commands: DynamicViewCommand[],
-		_manager: ViewSwitchingManager
-	): void {
+	private registerDynamicCommands(commands: DynamicViewCommand[], _manager: ViewSwitchingManager): void {
 		const config = this.getViewConfig();
 
 		for (const command of commands) {
@@ -315,15 +306,10 @@ export abstract class WatchdogPlugin<TSettings extends BaseWatchdogSettings> ext
 	/**
 	 * Create a hash that represents the current view state for command generation
 	 */
-	private createViewStateHash(
-		_viewOptions: any[],
-		viewSwitchingManager: ViewSwitchingManager
-	): string {
+	private createViewStateHash(_viewOptions: any[], viewSwitchingManager: ViewSwitchingManager): string {
 		// Get current commands to include selected view state in hash
 		const currentCommands = viewSwitchingManager.getAvailableCommands();
-		const commandsString = currentCommands
-			.map((cmd) => `${cmd.id}:${cmd.viewId}:${cmd.subViewId || ""}`)
-			.join("|");
+		const commandsString = currentCommands.map((cmd) => `${cmd.id}:${cmd.viewId}:${cmd.subViewId || ""}`).join("|");
 		return this.simpleHash(commandsString);
 	}
 

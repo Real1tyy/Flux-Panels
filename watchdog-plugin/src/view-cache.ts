@@ -119,12 +119,9 @@ export class InMemoryViewCache implements ViewCacheManager {
 
 		const existing = this.cache.get(filePath)!;
 		this.cache.set(filePath, {
-			selectedViewId:
-				"selectedViewId" in updates ? (updates.selectedViewId ?? null) : existing.selectedViewId,
+			selectedViewId: "selectedViewId" in updates ? (updates.selectedViewId ?? null) : existing.selectedViewId,
 			selectedSubViewId:
-				"selectedSubViewId" in updates
-					? (updates.selectedSubViewId ?? null)
-					: existing.selectedSubViewId,
+				"selectedSubViewId" in updates ? (updates.selectedSubViewId ?? null) : existing.selectedSubViewId,
 		});
 		return true;
 	}
