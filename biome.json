@@ -1,5 +1,5 @@
 {
-	"$schema": "https://biomejs.dev/schemas/2.2.4/schema.json",
+	"$schema": "https://biomejs.dev/schemas/2.2.5/schema.json",
 	"assist": { "actions": { "source": { "organizeImports": "on" } } },
 	"linter": {
 		"enabled": true,
@@ -21,7 +21,7 @@
 		"formatWithErrors": false,
 		"indentStyle": "tab",
 		"indentWidth": 2,
-		"lineWidth": 100,
+		"lineWidth": 120,
 		"lineEnding": "lf"
 	},
 	"javascript": {
@@ -38,14 +38,7 @@
 		}
 	},
 	"files": {
-		"includes": [
-			"**",
-			"!**/node_modules/",
-			"!**/main.js",
-			"!**/*.d.ts",
-			"!**/dist",
-			"!**/docs-site"
-		],
+		"includes": ["**", "!**/node_modules/", "!**/main.js", "!**/*.d.ts", "!**/dist", "!**/docs-site"],
 		"ignoreUnknown": true
 	}
 }
